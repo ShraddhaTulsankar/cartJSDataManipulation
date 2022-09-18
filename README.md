@@ -5,3 +5,9 @@ JS Dataset Practice
 //use custom lower order and higher order functions
 //dynamically creating categories and products
 //UI
+
+
+-----Git Commits---
+git fetch
+git branch -v -a
+git switch develop
