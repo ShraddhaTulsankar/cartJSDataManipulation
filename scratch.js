@@ -107,3 +107,9 @@ const readAFile = async (pathToFile) => {
 };
 
 readAFile(path.join(__dirname, '../dataset', 'pantry.js')); */
+
+/* 
+git add -A
+git checkout develop
+git commit -m "Master Branch Created"
+git push -u origin develop */
