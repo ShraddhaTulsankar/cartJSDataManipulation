@@ -1,12 +1,33 @@
-const { it } = require('node:test');
-const fileOps = require('../utils/fileOps');
+const path = require('path');
+const { performFileReadOperation } = require('../utils/fileIO');
 
-async function read() {
-  const data = await fileOps.fileReadOps();
-  return JSON.parse(data);
-}
+let pantryArray = [];
+let buyAgainArray = [];
+let produceArray = [];
+let snacksArray = [];
 
-const fetchData = read().then((myData) => {
-  const [{ itemPrice = '$12', ...spread }, ...rest] = myData;
-  console.log(itemPrice);
-});
+const readReturnFiles = async () => {
+  pantryArray = await performFileReadOperation('../dataset/Pantry.json');
+  readArray(pantryArray);
+
+  buyAgainArray = await performFileReadOperation('../dataset/BuyAgain.json');
+  await readArray(buyAgainArray);
+
+  produceArray = await performFileReadOperation('../dataset/Produce.json');
+  await readArray(produceArray);
+
+  snacksArray = await performFileReadOperation('../dataset/Snacks.json');
+  await readArray(snacksArray);
+
+  return pantryArray;
+};
+
+const readArray = (arr) => {
+  console.log(arr);
+};
+readReturnFiles();
+
+const destructureTest = () => {
+  console.log('aaa', pantryArray);
+};
+destructureTest();
