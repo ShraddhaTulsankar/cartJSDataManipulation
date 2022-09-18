@@ -50,3 +50,4 @@ function updateObjectProperties(itemInitialPrice) {
 }
 
 console.log(newObject);
+//testing
