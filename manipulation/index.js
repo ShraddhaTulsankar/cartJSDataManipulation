@@ -36,9 +36,16 @@ function updateObjectProperties(itemInitialPrice) {
   itemInitialPrice = parseFloat(itemInitialPrice);
   let itemLowerLimitPrice = itemInitialPrice * 0.8;
   let itemHigherLimitPrice = itemInitialPrice * 1.5;
-  let itemCategories = 'snacks';
+  let itemCategories =
+    random >= 0 && random < 3
+      ? 'snacks'
+      : random >= 3 && random < 6
+      ? 'pantry'
+      : random >= 6 && random < 9
+      ? 'produce'
+      : 'buyAgain';
   let isAvailable = random % 2 == 0 ? true : false;
-  let deliveryTime = random;
+  let deliveryTime = random == 0 ? 'Same Day Delivery' : random;
   return [
     itemInitialPrice,
     itemLowerLimitPrice,
