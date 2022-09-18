@@ -115,4 +115,10 @@ git checkout develop
 git commit -m "Master Branch Created"
 git push -u origin develop */
 
-parseFloat(itemInitialPrice.replace(/\$/g, '') * 0.8).toFixed(2);
+/* parseFloat(itemInitialPrice.replace(/\$/g, '') * 0.8).toFixed(2); */
+
+//reusable components -> navbar footer buttons formComponents cards
+//import fonts from google fonts and use
+//icons
+//categories + create product (in Navbar) --> which will go i the required category =>
+//forms
