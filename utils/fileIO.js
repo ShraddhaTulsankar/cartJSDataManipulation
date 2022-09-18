@@ -6,8 +6,7 @@ const readFiles = async (pathToFile, encoding) => {
 
 const performFileReadOperation = async (pathToFile) => {
   try {
-    const data = await readFiles(pathToFile, 'utf-8');
-    return data;
+    return await readFiles(pathToFile, 'utf-8');
   } catch (error) {
     console.log(error);
   }
