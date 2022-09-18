@@ -34,12 +34,44 @@ const refactorObject = (arr) => {
   return newObject;
 };
 
-const printAllCategories = (callbackfunction) => {
+const printAllCategories = (callbackfunction, isConsole) => {
   BuyAgainArr = callbackfunction(BuyAgainArr);
   PantryArr = callbackfunction(PantryArr);
   ProduceArr = callbackfunction(ProduceArr);
   SnacksArr = callbackfunction(SnacksArr);
-  console.log(BuyAgainArr, PantryArr, ProduceArr, SnacksArr);
+  isConsole && console.log(BuyAgainArr, PantryArr, ProduceArr, SnacksArr);
 };
 
-printAllCategories(refactorObject);
+const isItemAvailableOnCategories = (arr) => {
+  const isItemAvailable = arr.filter((item) => {
+    const {
+      itemMetadata: { isAvailable },
+    } = item;
+    return isAvailable && item;
+  });
+  return isItemAvailable;
+};
+
+const formatRatings = (arr) => {
+  const updateRatingsFormat = arr.map((item) => {
+    let { itemRating } = item;
+    itemRating = parseFloat(itemRating.replace(/,/g, ''));
+    return { ...item, itemRating };
+  });
+  return updateRatingsFormat;
+};
+
+printAllCategories(refactorObject, false);
+printAllCategories(formatRatings, false);
+
+const fetchUniqueProducts = () => {
+  const uniqueCategories = BuyAgainArr.filter((item) => {
+    const {
+      itemCategories: [category1, category2],
+    } = item;
+    return category1 !== category2 && item;
+  });
+  return uniqueCategories;
+};
+
+printAllCategories(fetchUniqueProducts, true);

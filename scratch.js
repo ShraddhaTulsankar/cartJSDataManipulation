@@ -115,4 +115,10 @@ git checkout develop
 git commit -m "Master Branch Created"
 git push -u origin develop */
 
-parseFloat(itemInitialPrice.replace(/\$/g, '') * 0.8).toFixed(2);
+// parseFloat(itemInitialPrice.replace(/\$/g, '') * 0.8).toFixed(2);
+
+/* 
+// itemRatingAvg - Category : get;
+// itemRatingAvg > itemRating/0.7 : newObject : bestseller : true, 
+// comply to our HOF!
+*/
